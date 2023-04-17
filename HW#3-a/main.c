@@ -2,17 +2,15 @@
 #include <time.h>
 
 void hanoi(int n, char from, char to, char aux, FILE *fp) {
-    static int move_num = 1;
-    if (n == 1) {
+    static int count = 1;
+    if (n == 2) {
         time_t now = time(NULL);
-        fprintf(fp, "%d (%s) : 1P from %c to %c\n", move_num, ctime(&now), from, to);
-        move_num++;
+        fprintf(fp, "%d (%s) : 1P from %c to %c\n", count++, ctime(&now), from, to);
         return;
     }
     hanoi(n - 1, from, aux, to, fp);
     time_t now = time(NULL);
-    fprintf(fp, "%d (%s) : %dP from %c to %c\n", move_num, ctime(&now), n, from, to);
-    move_num++;
+    fprintf(fp, "%d (%s) : %dP from %c to %c\n", count++, ctime(&now), n, from, to);
     hanoi(n - 1, aux, to, from, fp);
 }
 
