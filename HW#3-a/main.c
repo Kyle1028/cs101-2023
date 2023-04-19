@@ -15,7 +15,7 @@ void hanoi(int n, char from, char to, char aux, FILE *fp) {
 }
 
 int main() {
-    int n = 20;
+    int n = 21;
     FILE *fp = fopen("hanoi.txt", "w");
     time_t start_time = time(NULL);
     fprintf(fp, "開始搬動時間 (%s)\n", ctime(&start_time));
